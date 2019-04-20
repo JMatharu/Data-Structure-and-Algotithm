@@ -16,7 +16,6 @@ example(of: "Creating a linking node") {
 
 example(of: "Creating a linked list Push") {
     var list = LinkedList<Int>()
-    list.push(0)
     list.push(1)
     list.push(2)
     list.push(3)
@@ -25,19 +24,18 @@ example(of: "Creating a linked list Push") {
 
 example(of: "Creating a linked list Append") {
     var list = LinkedList<Int>()
-    list.append(0)
     list.append(1)
     list.append(2)
-    list.push(3)
+    list.append(3)
     print(list)
 }
 
 
 example(of: "Inserting at particular Index") {
     var list = LinkedList<Int>()
-    list.push(0)
     list.push(1)
     list.push(2)
+    list.push(3)
     
     print("Before inserting: \(list)")
     
@@ -49,3 +47,20 @@ example(of: "Inserting at particular Index") {
     
     print("After inserting: \(list)")
 }
+
+
+// Result
+/*
+ ---Example of Creating a linking node---
+ 1 -> 2 -> 3
+ 
+ ---Example of Creating a linked list Push---
+ 3 -> 2 -> 1
+ 
+ ---Example of Creating a linked list Append---
+ 1 -> 2 -> 3
+ 
+ ---Example of Inserting at particular Index---
+ Before inserting: 3 -> 2 -> 1
+ After inserting: 3 -> 2 -> -1 -> -1 -> -1 -> -1 -> 1   
+ */
