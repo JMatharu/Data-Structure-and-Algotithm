@@ -20,6 +20,7 @@ extension LinkedList: CustomStringConvertible {
     }
 }
 
+// Inserting
 extension LinkedList {
     public mutating func push(_ value: Value) {
         head = Node(value: value, next: head)
@@ -78,4 +79,83 @@ extension LinkedList {
         
         return node.next!
     }
+    
+    /*
+     |----------------------------------------------------------------------------------------------------------------------------|
+     |                  |        Push       |       Append      |       insert(after:)    |                node(at:)              |
+     |----------------------------------------------------------------------------------------------------------------------------|
+     | Behaviour        |   insert at head  |   insert at tail  |   insert after a node   |     returns a node at a given index   |
+     |----------------------------------------------------------------------------------------------------------------------------|
+     | Time complexity  |        O(1)       |        O(1)       |            O(1)         |   O(i), where `i` is the given index  |
+     |----------------------------------------------------------------------------------------------------------------------------|
+     */
+}
+
+// Removing
+extension LinkedList {
+    // By moving the head down a node, you’ve effectively removed the first node of the list.
+    // ARC will remove the old node from memory once the method finishes, since there will be no more references attached to it.
+    // In the event that the list becomes empty, you set tail to nil.
+    public mutating func pop() -> Value? {
+        defer {
+            head = head?.next
+            if isEmpty {
+                tail = nil
+            }
+        }
+        return head?.value
+    }
+    
+    @discardableResult
+    public mutating func removeLast() -> Value? {
+        // If head is nil, there’s nothing to remove, so you return nil.
+        guard let head = head else {
+            return nil
+        }
+        
+        // If the list only consists of one node, removeLast is functionally equivalent to pop.
+        // Since pop will handle updating the head and tail references, you’ll just delegate this work to it.
+        guard head.next != nil else {
+            return pop()
+        }
+        
+        //You keep searching for a next node until current.next is nil.
+        //This signifies that current is the last node of the list.
+        var previous = head
+        var current = head
+        
+        while let next = current.next {
+            previous = current
+            current = next
+        }
+        
+        // Since current is the last node, you simply disconnect it using the prev.next reference.
+        // You also make sure to update the tail reference.
+        previous.next = nil
+        tail = previous
+        return current.value
+    }
+    
+    @discardableResult
+    // The unlinking of the nodes occurs in the defer block.
+    // Special care needs to be taken if the removed node is the tail node, since the tail reference will need to be updated.
+    public mutating func remove(after node: Node<Value>) -> Value? {
+        defer {
+            if node.next === tail {
+                tail = node
+            }
+            node.next = node.next?.next
+        }
+        return node.next?.value
+    }
+    
+    /*
+     |-----------------------------------------------------------------------------------------|
+     |                  |        Pop        |    Remove last   |          remove(after:)       |
+     |-----------------------------------------------------------------------------------------|
+     | Behaviour        |   remove at head  |  remove at tail  |   remove immediate next node  |
+     |-----------------------------------------------------------------------------------------|
+     | Time complexity  |        O(1)       |        O(n)      |            O(1)               |
+     |-----------------------------------------------------------------------------------------|
+     */
 }

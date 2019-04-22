@@ -48,6 +48,41 @@ example(of: "Inserting at particular Index") {
     print("After inserting: \(list)")
 }
 
+example(of: "POP") {
+    var list = LinkedList<Int>()
+    list.push(1)
+    list.push(2)
+    list.push(3)
+    print("Before Poping list \(list)")
+    let popped = list.pop()
+    print("Item Popped \(String(describing: popped))")
+    print("After popping list \(list)")
+}
+
+example(of: "Remove from Last") {
+    var list = LinkedList<Int>()
+    list.push(1)
+    list.push(2)
+    list.push(3)
+    print("Before removing last \(list)")
+    let removed = list.removeLast()
+    print("Item removed \(String(describing: removed))")
+    print("After removing last \(list)")
+}
+
+example(of: "Remove at particular location") {
+    var list = LinkedList<Int>()
+    list.push(1)
+    list.push(2)
+    list.push(3)
+    print("Before removing \(list)")
+    let index = 1
+    let node = list.node(at: index - 1)!
+    let removed = list.remove(after: node)
+    print("Item removed \(String(describing: removed))")
+    print("After removing \(list)")
+}
+
 
 // Result
 /*
@@ -62,5 +97,20 @@ example(of: "Inserting at particular Index") {
  
  ---Example of Inserting at particular Index---
  Before inserting: 3 -> 2 -> 1
- After inserting: 3 -> 2 -> -1 -> -1 -> -1 -> -1 -> 1   
+ After inserting: 3 -> 2 -> -1 -> -1 -> -1 -> -1 -> 1
+ 
+ ---Example of POP---
+ Before Poping list 3 -> 2 -> 1
+ Item Popped Optional(3)
+ After popping list 2 -> 1
+ 
+ ---Example of Remove from Last---
+ Before removing last 3 -> 2 -> 1
+ Item removed Optional(1)
+ After removing last 3 -> 2
+ 
+ ---Example of Remove at particular location---
+ Before removing 3 -> 2 -> 1
+ Item removed Optional(2)
+ After removing 3 -> 1
  */
