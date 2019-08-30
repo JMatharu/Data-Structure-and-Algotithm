@@ -50,3 +50,33 @@ queueLinkedList.isEmpty
  Optional("Brian")
  false
  */
+
+
+var queueRingBuffer = QueueRingBuffer<String>(count: 3)
+print(queueRingBuffer.enqueue("Ray"))
+print(queueRingBuffer.enqueue("Brian"))
+print(queueRingBuffer.enqueue("Eric"))
+print(queueRingBuffer)
+print(queueRingBuffer.dequeue())
+print(queueRingBuffer)
+print(queueRingBuffer.peek)
+print(queueRingBuffer)
+print(queueRingBuffer.enqueue("1"))
+print(queueRingBuffer.enqueue("2"))
+print(queueRingBuffer.enqueue("3"))
+print(queueRingBuffer)
+
+/* --Result--
+ true
+ true
+ true
+ [Ray, Brian, Eric]
+ Optional("Ray")
+ [Brian, Eric]
+ Optional("Brian")
+ [Brian, Eric]
+ true
+ false
+ false
+ [Brian, Eric, 1]
+ */
