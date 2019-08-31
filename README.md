@@ -4,13 +4,13 @@ Data Structure and Algorithm in Swift
 
 ## TOC
 - Linked List
-- Node
+   - Node
 - Stack
 - Queues
-- Queue Array
-- Queue LinkedList
-- Queue RingBuffer
-- Queue Double Stack
+   - Queue Array
+   - Queue LinkedList
+   - Queue RingBuffer
+   - Queue Double Stack
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
