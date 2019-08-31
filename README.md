@@ -1,4 +1,4 @@
-# Swift Data Structures and algorithms
+# Swift Data Structures and Algorithms
 
 Data Structure and Algorithm in Swift
 
