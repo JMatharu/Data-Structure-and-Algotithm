@@ -53,18 +53,18 @@ queueLinkedList.isEmpty
 
 
 var queueRingBuffer = QueueRingBuffer<String>(count: 3)
-print(queueRingBuffer.enqueue("Ray"))
-print(queueRingBuffer.enqueue("Brian"))
-print(queueRingBuffer.enqueue("Eric"))
-print(queueRingBuffer)
-print(queueRingBuffer.dequeue())
-print(queueRingBuffer)
-print(queueRingBuffer.peek)
-print(queueRingBuffer)
-print(queueRingBuffer.enqueue("1"))
-print(queueRingBuffer.enqueue("2"))
-print(queueRingBuffer.enqueue("3"))
-print(queueRingBuffer)
+queueRingBuffer.enqueue("Ray")
+queueRingBuffer.enqueue("Brian")
+queueRingBuffer.enqueue("Eric")
+queueRingBuffer
+queueRingBuffer.dequeue()
+queueRingBuffer
+queueRingBuffer.peek
+queueRingBuffer
+queueRingBuffer.enqueue("1")
+queueRingBuffer.enqueue("2")
+queueRingBuffer.enqueue("3")
+queueRingBuffer
 
 /* --Result--
  true
