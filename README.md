@@ -3,30 +3,30 @@
 Data Structure and Algorithm in Swift
 
 ## TOC
-- Linked List
+- __Linked List__
 	<br/>
 	<img src="Resources/LinkedList.png" width="400" height="200">
-   - Node
-- Stack
-- Queues
+   - __Node__
+- __Stack__
+- __Queues__
 	<br/>
 	<img src="Resources/Queue.png" width="400" height="200">
-   - Queue Array
+   - __Queue Array__
    	<br/>
 	<img src="Resources/QueueArray.png" width="500" height="200">
 	<br/>
-   - Queue LinkedList
+   - __Queue LinkedList__
    	<br/>
 	<img src="Resources/QueueLinkedList1.png" width="600" height="200">
 	<br/>
 	<img src="Resources/QueueLinkedList2.png" width="600" height="200">
 	<br/>
-   - Queue RingBuffer
+   - __Queue RingBuffer__
    	<br/>
-   - Queue Double Stack
+   - __Queue Double Stack__
    	<br/>
 	<img src="Resources/QueueStack.png" width="500" height="200">
-- Tree
+- __Tree__
 <br/>
 <img src="/Resources/Tree.png" width="300" height="200">
 	
