@@ -5,27 +5,27 @@ Data Structure and Algorithm in Swift
 ## TOC
 - Linked List
 	<br/>
-	<img src="" width="300" height="200">
+	<img src="Resources/LinkedList.png" width="400" height="200">
    - Node
 - Stack
-	<br/>
-	<img src="" width="300" height="200">
 - Queues
+	<br/>
+	<img src="Resources/Queue.png" width="400" height="200">
    - Queue Array
    	<br/>
-	<img src="" width="300" height="200">
+	<img src="Resources/QueueArray.png" width="400" height="200">
    - Queue LinkedList
    	<br/>
-	<img src="" width="300" height="200">
+	<img src="Resources/QueueLinkedList1.png" width="400" height="200">
+	<br/>
+	<img src="Resources/QueueLinkedList2.png" width="400" height="200">
    - Queue RingBuffer
-   	<br/>
-	<img src="" width="300" height="200">
    - Queue Double Stack
    	<br/>
-	<img src="" width="300" height="200">
+	<img src="Resources/QueueStack.png" width="400" height="200">
 - Tree
 <br/>
-<img src="Tree.png" width="300" height="200">
+<img src="/Resources/Tree.png" width="300" height="200">
 	
 
 ## License
