@@ -17,9 +17,9 @@ Data Structure and Algorithm in Swift
 	<br/>
    - Queue LinkedList
    	<br/>
-	<img src="Resources/QueueLinkedList1.png" width="500" height="200">
+	<img src="Resources/QueueLinkedList1.png" width="600" height="200">
 	<br/>
-	<img src="Resources/QueueLinkedList2.png" width="500" height="200">
+	<img src="Resources/QueueLinkedList2.png" width="600" height="200">
 	<br/>
    - Queue RingBuffer
    	<br/>
