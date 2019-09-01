@@ -80,3 +80,21 @@ queueRingBuffer
  false
  [Brian, Eric, 1]
  */
+
+
+var queue = QueueStack<String>()
+queue.enqueue("Ray")
+queue.enqueue("Brian")
+queue.enqueue("Eric")
+queue.dequeue()
+queue
+queue.peek
+
+/* --Result--
+ true
+ true
+ true
+ Optional("Ray")
+ ["Eric", "Brian"]
+ Optional("Eric")
+ */
