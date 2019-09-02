@@ -28,6 +28,13 @@ Data Structure and Algorithm in Swift
 
 ## Tree
 <img src="/Resources/Tree.png" width="300" height="200">
-	
+
+### Transversal Algorithms
+#### Depth-first Traversal
+<img src="/Resources/Depth-first.png" width="300" height="200">
+
+#### Level-order traversal
+<img src="/Resources/Level-order.png" width="300" height="200">
+
 # License
 [MIT](https://choosealicense.com/licenses/mit/)
