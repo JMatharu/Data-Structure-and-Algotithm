@@ -36,5 +36,7 @@ Data Structure and Algorithm in Swift
 #### Level-order traversal
 <img src="/Resources/Level-order.png" width="300" height="200">
 
+#### Search
+
 # License
 [MIT](https://choosealicense.com/licenses/mit/)
