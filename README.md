@@ -3,7 +3,7 @@
 Data Structure and Algorithm in Swift
 
 ## TOC
-- __Linked List__
+### __Linked List__
 	<br/>
 	<img src="Resources/LinkedList.png" width="400" height="200">
    - __Node__
