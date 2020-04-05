@@ -6,7 +6,6 @@ func bubbleSort(on A :[Int]) -> [Int] {
     
     let lengthOfArray = A.count
     var array = A
-    print(array)
     for i in 0..<lengthOfArray {
         var flag = false
         for j in 0..<lengthOfArray - 1 - i {
@@ -20,7 +19,6 @@ func bubbleSort(on A :[Int]) -> [Int] {
         if flag == false {
             break
         }
-        print(array)
     }
     return array
 }
