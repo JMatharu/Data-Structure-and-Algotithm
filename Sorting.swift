@@ -26,3 +26,29 @@ func bubbleSort(on A :[Int]) -> [Int] {
 }
 
 bubbleSort(on: [9,7,5,6, 8])
+
+
+/*
+Insertion Sort
+*/
+
+func insertionSort(on array: [Int]) -> [Int] {
+    
+    var copyOfArray = array
+    
+    for i in 1..<copyOfArray.count {
+        let temp = copyOfArray[i]
+        var j = i - 1
+        while (j >= 0 && copyOfArray[j] > temp) {
+            copyOfArray[i] = copyOfArray[j]
+            j -= 1
+        }
+        copyOfArray[j + 1] = temp
+    }
+    return copyOfArray
+}
+
+//Time Complexity
+// Best case O(n)
+// Worst case O(n2)
+insertionSort(on: [9,7,5,6, 8])
