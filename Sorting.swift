@@ -1,5 +1,5 @@
 /*
-Bubble Sort
+Bubble Sort - https://www.youtube.com/watch?v=o4bAoo_gFBU&list=PLdo5W4Nhv31bEiyP4tclZMc5mP_X7OD7k&index=1
 */
 
 func bubbleSort(on A :[Int]) -> [Int] {
@@ -29,7 +29,7 @@ bubbleSort(on: [9,7,5,6, 8])
 
 
 /*
-Insertion Sort
+Insertion Sort - https://www.youtube.com/watch?v=yCxV0kBpA6M&list=PLdo5W4Nhv31bEiyP4tclZMc5mP_X7OD7k&index=2
 */
 
 func insertionSort(on array: [Int]) -> [Int] {
