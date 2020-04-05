@@ -38,7 +38,7 @@ func insertionSort(on array: [Int]) -> [Int] {
         let temp = copyOfArray[i]
         var j = i - 1
         while (j >= 0 && copyOfArray[j] > temp) {
-            copyOfArray[i] = copyOfArray[j]
+            copyOfArray[j+1] = copyOfArray[j]
             j -= 1
         }
         copyOfArray[j + 1] = temp
