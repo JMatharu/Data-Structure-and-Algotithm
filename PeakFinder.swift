@@ -28,8 +28,9 @@ func findPeakIndexWithStraighyForward(for nums: [Int]) -> Int? {
     return nil
 }
 
-findPeakIndexWithStraighyForward(for: [4, 3,2,1])
-
+findPeakIndexWithStraighyForward(for: [4,3,2,1]) // 0
+findPeakIndexWithStraighyForward(for: [0,2,4,6,7]) // 2
+findPeakIndexWithStraighyForward(for: [1,2,3,4,3,2,1]) // 3
 /*
  "Divide & Conquer" (a recursive) algorithm
  */
