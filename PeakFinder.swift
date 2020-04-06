@@ -20,19 +20,19 @@
 func findPeakIndexWithStraighyForward(for nums: [Int]) -> Int? {
     for i in 0..<nums.count {
         if i + 1 == nums.count {
-            return nums[i]
+            return i
         }
         if nums[i] > nums[i+1] {
-            return nums[i]
+            return i
         }
     }
     return nil
 }
 
-findPeakIndexWithStraighyForward(for: [1,4,3,2,1]) // 0
-findPeakIndexWithStraighyForward(for: [0,2,4,6,7]) // 2
+findPeakIndexWithStraighyForward(for: [1,4,3,2,1]) // 1
+findPeakIndexWithStraighyForward(for: [0,2,4,6,7]) // 4
 findPeakIndexWithStraighyForward(for: [1,2,3,4,3,2,1]) // 3
-findPeakIndexWithStraighyForward(for: [8,6,4,3,1]) // 3
+findPeakIndexWithStraighyForward(for: [8,6,4,3,1]) // 0
 
 /*
  "Divide & Conquer" (a recursive) algorithm
