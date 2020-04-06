@@ -36,4 +36,45 @@ findPeakIndexWithStraighyForward(for: [8,6,4,3,1]) // 0
 
 /*
  "Divide & Conquer" (a recursive) algorithm
+ Binary Search
+ Θ(log2(n))
  */
+
+func findPeakIndexWithDivideAndConqure(for nums: [Int]) -> Int? {
+    
+    let n = nums.count
+    let midIndex = n/2
+    let mid = nums[midIndex]
+    
+    if mid < nums[midIndex - 1] {
+        let lowerIndex = 0
+        var upperIndex = midIndex
+        while upperIndex > lowerIndex {
+            if nums[upperIndex] > nums[upperIndex - 1] {
+                return upperIndex
+            } else if nums[upperIndex] < nums[upperIndex - 1] {
+                upperIndex -= 1
+            }
+        }
+        return upperIndex
+    } else if mid < nums[midIndex + 1] {
+        var lowerIndex = midIndex
+        let upperIndex = nums.count - 1
+        while upperIndex > lowerIndex {
+            if nums[lowerIndex] > nums[lowerIndex + 1] {
+                return lowerIndex
+            } else if nums[lowerIndex] < nums[lowerIndex + 1] {
+                lowerIndex += 1
+            }
+        }
+        return lowerIndex
+    } else {
+        return n/2
+    }
+}
+
+findPeakIndexWithDivideAndConqure(for: [1,2,4,3,2,1]) //2
+findPeakIndexWithDivideAndConqure(for: [0,2,4,6,7]) //4
+findPeakIndexWithDivideAndConqure(for: [0,2,4,6,7,6,5,4]) //4
+findPeakIndexWithDivideAndConqure(for: [1,2,3,4,3,2,1]) // 3
+findPeakIndexWithDivideAndConqure(for: [8,6,4,3,1]) //0
