@@ -19,9 +19,7 @@
 
 func findPeakIndexWithStraighyForward(for nums: [Int]) -> Int? {
     for i in 0..<nums.count {
-        if (nums[i] == nums.count - 1) {
-            return i
-        } else if (nums[i] > nums[i+1]) {
+        if (nums[i] == nums.count - 1) || (nums[i] > nums[i+1]) {
             return i
         }
     }
