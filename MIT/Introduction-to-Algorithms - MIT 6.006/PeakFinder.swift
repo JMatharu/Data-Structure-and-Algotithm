@@ -104,10 +104,10 @@ func findPeakValueWithDivideAndConqure_recursion<T: Comparable>(for nums: [T]) -
 }
 
 
-print(findPeakValueWithDivideAndConqure_recursion(for: [1,2,4,3,2,1])) // Optional(4)
-print(findPeakValueWithDivideAndConqure_recursion(for: [0,2,4,6,7])) // Optional(7)
-print(findPeakValueWithDivideAndConqure_recursion(for: [0,2,4,6,7,6,5,4])) // Optional(7)
-print(findPeakValueWithDivideAndConqure_recursion(for: [1,2,3,4,3,2,1])) //  Optional(4)
-print(findPeakValueWithDivideAndConqure_recursion(for: [8,6,4,3,1])) // Optional(8)
-print(findPeakValueWithDivideAndConqure_recursion(for: [1])) // Optional(1)
+print(findPeakValueWithDivideAndConqure_recursion(for: [1,2,4,3,2,1])) // Optional(2)
+print(findPeakValueWithDivideAndConqure_recursion(for: [0,2,4,6,7])) // Optional(4)
+print(findPeakValueWithDivideAndConqure_recursion(for: [0,2,4,6,7,6,5,4])) // Optional(4)
+print(findPeakValueWithDivideAndConqure_recursion(for: [1,2,3,4,3,2,1])) //  Optional(3)
+print(findPeakValueWithDivideAndConqure_recursion(for: [8,6,4,3,1])) // Optional(0)
+print(findPeakValueWithDivideAndConqure_recursion(for: [1])) // Optional(0)
 print(findPeakValueWithDivideAndConqure_recursion(for: Array<Int>())) // nil
