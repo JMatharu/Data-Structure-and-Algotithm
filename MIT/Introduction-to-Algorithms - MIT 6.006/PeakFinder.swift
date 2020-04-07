@@ -35,12 +35,12 @@ findPeakIndexWithStraighyForward(for: [1,2,3,4,3,2,1]) // 3
 findPeakIndexWithStraighyForward(for: [8,6,4,3,1]) // 0
 
 /*
- "Divide & Conquer" algorithm
+ "Divide & Conquer" algorithm (Iterative)
  Binary Search
  Θ(log2(n))
  */
 
-func findPeakIndexWithDivideAndConqure(for nums: [Int]) -> Int? {
+func findPeakIndexWithDivideAndConqure_iterative(for nums: [Int]) -> Int? {
     
     let n = nums.count
     let midIndex = n/2
@@ -73,11 +73,11 @@ func findPeakIndexWithDivideAndConqure(for nums: [Int]) -> Int? {
     }
 }
 
-findPeakIndexWithDivideAndConqure(for: [1,2,4,3,2,1]) //2
-findPeakIndexWithDivideAndConqure(for: [0,2,4,6,7]) //4
-findPeakIndexWithDivideAndConqure(for: [0,2,4,6,7,6,5,4]) //4
-findPeakIndexWithDivideAndConqure(for: [1,2,3,4,3,2,1]) // 3
-findPeakIndexWithDivideAndConqure(for: [8,6,4,3,1]) //0
+findPeakIndexWithDivideAndConqure_iterative(for: [1,2,4,3,2,1]) //2
+findPeakIndexWithDivideAndConqure_iterative(for: [0,2,4,6,7]) //4
+findPeakIndexWithDivideAndConqure_iterative(for: [0,2,4,6,7,6,5,4]) //4
+findPeakIndexWithDivideAndConqure_iterative(for: [1,2,3,4,3,2,1]) // 3
+findPeakIndexWithDivideAndConqure_iterative(for: [8,6,4,3,1]) //0
 
 /*
  "Divide & Conquer" (a recursive) algorithm
