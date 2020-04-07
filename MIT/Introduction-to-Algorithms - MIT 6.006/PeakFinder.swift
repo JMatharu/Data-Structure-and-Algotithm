@@ -103,11 +103,47 @@ func findPeakValueWithDivideAndConqure_recursion<T: Comparable>(for nums: [T]) -
     }
 }
 
-
-print(findPeakValueWithDivideAndConqure_recursion(for: [1,2,4,3,2,1])) // Optional(2)
-print(findPeakValueWithDivideAndConqure_recursion(for: [0,2,4,6,7])) // Optional(4)
-print(findPeakValueWithDivideAndConqure_recursion(for: [0,2,4,6,7,6,5,4])) // Optional(4)
-print(findPeakValueWithDivideAndConqure_recursion(for: [1,2,3,4,3,2,1])) //  Optional(3)
-print(findPeakValueWithDivideAndConqure_recursion(for: [8,6,4,3,1])) // Optional(0)
-print(findPeakValueWithDivideAndConqure_recursion(for: [1])) // Optional(0)
+print(findPeakValueWithDivideAndConqure_recursion(for: [1,2,4,3,2,1])) // Optional(4)
+print(findPeakValueWithDivideAndConqure_recursion(for: [0,2,4,6,7])) // Optional(7)
+print(findPeakValueWithDivideAndConqure_recursion(for: [0,2,4,6,7,6,5,4])) // Optional(7)
+print(findPeakValueWithDivideAndConqure_recursion(for: [1,2,3,4,3,2,1])) //  Optional(4)
+print(findPeakValueWithDivideAndConqure_recursion(for: [8,6,4,3,1])) // Optional(8)
+print(findPeakValueWithDivideAndConqure_recursion(for: [1])) // Optional(1)
 print(findPeakValueWithDivideAndConqure_recursion(for: Array<Int>())) // nil
+/*
+ "Divide & Conquer" (a recursive) algorithm
+ Binary Search, finds the index value
+ Θ(log2(n))
+ */
+
+func findPeakIndexWithDivideAndConqure_recursion<T: Comparable>(for nums: [T]) -> Int? {
+    findPeakIndexWithDivideAndConqure_recursion(for: nums, 0, nums.count - 1)
+}
+
+func findPeakIndexWithDivideAndConqure_recursion<T: Comparable>(for nums: [T], _ lowerBound: Int, _ upperBound: Int) -> Int? {
+    if lowerBound > upperBound {
+        return nil
+    }
+    
+    if lowerBound == upperBound {
+        return lowerBound
+    }
+    
+    let middle: Int = lowerBound + (upperBound - lowerBound) / 2
+
+    if middle - 1 >= lowerBound && nums[middle] < nums[middle - 1] {
+        return findPeakIndexWithDivideAndConqure_recursion(for: nums, lowerBound, middle - 1)
+    } else if middle + 1 <= upperBound && nums[middle] < nums[middle + 1] {
+        return findPeakIndexWithDivideAndConqure_recursion(for: nums, middle + 1, upperBound)
+    } else {
+        return middle
+    }
+}
+
+print(findPeakIndexWithDivideAndConqure_recursion(for: [1,2,4,3,2,1])) // Optional(2)
+print(findPeakIndexWithDivideAndConqure_recursion(for: [0,2,4,6,7])) // Optional(4)
+print(findPeakIndexWithDivideAndConqure_recursion(for: [0,2,4,6,7,6,5,4])) // Optional(4)
+print(findPeakIndexWithDivideAndConqure_recursion(for: [1,2,3,4,3,2,1])) //  Optional(3)
+print(findPeakIndexWithDivideAndConqure_recursion(for: [8,6,4,3,1])) // Optional(0)
+print(findPeakIndexWithDivideAndConqure_recursion(for: [1])) // Optional(0)
+print(findPeakIndexWithDivideAndConqure_recursion(for: Array<Int>())) // nil
