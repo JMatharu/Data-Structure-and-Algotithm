@@ -147,3 +147,68 @@ print(findPeakIndexWithDivideAndConqure_recursion(for: [1,2,3,4,3,2,1])) //  Opt
 print(findPeakIndexWithDivideAndConqure_recursion(for: [8,6,4,3,1])) // Optional(0)
 print(findPeakIndexWithDivideAndConqure_recursion(for: [1])) // Optional(0)
 print(findPeakIndexWithDivideAndConqure_recursion(for: Array<Int>())) // nil
+
+/*
+ 2-D 
+ "Divide & Conquer" (a recursive) algorithm
+ Binary Search, finds the index value
+ Θ(log2(log2(n)))
+ */
+
+func findPeakIndexWithDivideAndConqure_recursion_2d<T: Comparable>(for nums: [[T]]) -> (row: Int?, column: Int?) {
+    return findPeakIndexWithDivideAndConqure_recursion_2d(for: nums, 0, (nums.first?.count ?? 0 - 1))
+}
+
+func findPeakIndexWithDivideAndConqure_recursion_2d<T: Comparable>(for nums: [[T]], _ columnLowerBound: Int, _ columnUpperBound: Int) -> (Int?, Int?) {
+    
+    let rows = nums.count
+    guard rows > 0, columnLowerBound <= columnUpperBound else {
+        return (nil, nil)
+    }
+    
+    let midCol: Int = columnLowerBound + (columnUpperBound - columnLowerBound) / 2
+    
+    var colArray: [T] = []
+    // build the column array
+    for i in 0..<rows {
+        colArray.append(nums[i][midCol])
+    }
+    
+    // find peak index row
+    let rowPeakIndex: Int! = findPeakIndexWithDivideAndConqure_recursion(for: colArray)
+    if rowPeakIndex != nil {
+        if columnLowerBound == columnUpperBound {
+            return (rowPeakIndex, columnLowerBound)
+        }
+        
+        if midCol - 1 >= columnLowerBound && nums[rowPeakIndex][midCol] < nums[rowPeakIndex][midCol - 1] {
+            return findPeakIndexWithDivideAndConqure_recursion_2d(for: nums, columnLowerBound, midCol - 1)
+        } else if midCol + 1 <= columnUpperBound && nums[rowPeakIndex][midCol] < nums[rowPeakIndex][midCol + 1] {
+            return findPeakIndexWithDivideAndConqure_recursion_2d(for: nums, midCol + 1, columnUpperBound)
+        } else {
+            return (rowPeakIndex, midCol)
+        }
+    }
+    
+    return (nil, nil)
+}
+
+let problemMatrix = [
+    [ 4,  5,  6,  7,  8,  7,  6,  5,  4,  3,  2],
+    [ 5,  6,  7,  8,  9,  8,  7,  6,  5,  4,  3],
+    [ 6,  7,  8,  9, 10,  9,  8,  7,  6,  5,  4],
+    [ 7,  8,  9, 10, 11, 10,  9,  8,  7,  6,  5],
+    [ 8,  9, 10, 11, 12, 11, 10,  9,  8,  7,  6],
+    [ 7,  8,  9, 10, 11, 10,  9,  8,  7,  6,  5],
+    [ 6,  7,  8,  9, 10,  9,  8,  7,  6,  5,  4],
+    [ 5,  6,  7,  8,  9,  8,  7,  6,  5,  4,  3],
+    [ 4,  5,  6,  7,  8,  7,  6,  5,  4,  3,  2],
+    [ 3,  4,  5,  6,  7,  6,  5,  4,  3,  2,  1],
+    [ 2,  3,  4,  5,  6,  5,  4,  3,  2,  1,  0]
+]
+
+let points = findPeakIndexWithDivideAndConqure_recursion_2d(for: problemMatrix)
+print(problemMatrix[points.row ?? 0][points.column ?? 0]) // 12
+
+
+
