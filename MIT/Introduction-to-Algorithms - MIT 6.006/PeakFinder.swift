@@ -81,11 +81,11 @@ findPeakIndexWithDivideAndConqure_iterative(for: [8,6,4,3,1]) //0
 
 /*
  "Divide & Conquer" (a recursive) algorithm
- Binary Search
+ Binary Search, finds the peak value
  Θ(log2(n))
  */
 
-func findPeakIndexWithDivideAndConqure_recursion<T: Comparable>(for nums: [T]) -> T? {
+func findPeakValueWithDivideAndConqure_recursion<T: Comparable>(for nums: [T]) -> T? {
     
     if nums.count <= 1 {
         return nums.first
@@ -104,10 +104,10 @@ func findPeakIndexWithDivideAndConqure_recursion<T: Comparable>(for nums: [T]) -
 }
 
 
-print(findPeakIndexWithDivideAndConqure_recursion(for: [1,2,4,3,2,1])) // Optional(4)
-print(findPeakIndexWithDivideAndConqure_recursion(for: [0,2,4,6,7])) // Optional(7)
-print(findPeakIndexWithDivideAndConqure_recursion(for: [0,2,4,6,7,6,5,4])) // Optional(7)
-print(findPeakIndexWithDivideAndConqure_recursion(for: [1,2,3,4,3,2,1])) //  Optional(4)
-print(findPeakIndexWithDivideAndConqure_recursion(for: [8,6,4,3,1])) // Optional(8)
-print(findPeakIndexWithDivideAndConqure_recursion(for: [1])) // Optional(1)
-print(findPeakIndexWithDivideAndConqure_recursion(for: Array<Int>())) // nil
+print(findPeakValueWithDivideAndConqure_recursion(for: [1,2,4,3,2,1])) // Optional(4)
+print(findPeakValueWithDivideAndConqure_recursion(for: [0,2,4,6,7])) // Optional(7)
+print(findPeakValueWithDivideAndConqure_recursion(for: [0,2,4,6,7,6,5,4])) // Optional(7)
+print(findPeakValueWithDivideAndConqure_recursion(for: [1,2,3,4,3,2,1])) //  Optional(4)
+print(findPeakValueWithDivideAndConqure_recursion(for: [8,6,4,3,1])) // Optional(8)
+print(findPeakValueWithDivideAndConqure_recursion(for: [1])) // Optional(1)
+print(findPeakValueWithDivideAndConqure_recursion(for: Array<Int>())) // nil
