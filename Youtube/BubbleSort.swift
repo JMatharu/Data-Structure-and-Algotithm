@@ -35,15 +35,17 @@ bubbleSort_iterative(on: &array2) //[5]
 bubbleSort_iterative(on: &array3) //[6, 4, 3, 2, 1]
 bubbleSort_iterative(on: &array4) //[78568, 2452, 756, 356, 67, 56, 56, 54, 45, 34, 12, 9, 8, 7, 6, 6, 5, 4, 4, 3, 3, 2, 1]
 
-
-
 func bubbleSort_recursion<T: Comparable>(on array: inout[T]) -> [T] {
+    return bubbleSort_recursion(on: &array, arrayLength: array.count - 1)
+}
+
+func bubbleSort_recursion<T: Comparable>(on array: inout[T], arrayLength: Int) -> [T] {
     
-    if array.count == 1 {
+    if arrayLength <= 1 {
         return array
     }
     
-    for i in 0..<array.count - 1 {
+    for i in 0..<arrayLength - 1 {
         if array[i] < array[i + 1] {
             let temp = array[i]
             array[i] = array[i + 1]
@@ -51,9 +53,7 @@ func bubbleSort_recursion<T: Comparable>(on array: inout[T]) -> [T] {
         }
     }
     
-    bubbleSort_iterative(on: &array)
-    
-    return array
+    return bubbleSort_recursion(on: &array, arrayLength: arrayLength - 1)
 }
 
 bubbleSort_recursion(on: &array) //[10, 9, 8, 7, 6, 5]
