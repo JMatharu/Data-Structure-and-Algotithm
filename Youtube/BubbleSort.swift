@@ -1,42 +1,6 @@
 /*
- Two-dimensional Version
- */
-
-/*
- Greedy Ascent Algorithm
- Θ(nm) complexity, Θ(n2(square)) algorithm if m = n
- (Palle nai pya, na jada damag lagaya :P)
- */
-
-/*
- "2D recursive" algorithm
- If T(n, m) denotes work required to solve problem with n rows and m columns = Θ(n log n)
- */
-
-//func find2DPeak<T: Comparable>(nums: [[T]]) {
-//
-//    let rows = nums.count
-//    let midColumn =
-//
-//}
-//
-//let problemMatrix = [
-//    [ 4,  5,  6,  7,  8,  7,  6,  5,  4,  3,  2],
-//    [ 5,  6,  7,  8,  9,  8,  7,  6,  5,  4,  3],
-//    [ 6,  7,  8,  9, 10,  9,  8,  7,  6,  5,  4],
-//    [ 7,  8,  9, 10, 11, 10,  9,  8,  7,  6,  5],
-//    [ 8,  9, 10, 11, 12, 11, 10,  9,  8,  7,  6],
-//    [ 7,  8,  9, 10, 11, 10,  9,  8,  7,  6,  5],
-//    [ 6,  7,  8,  9, 10,  9,  8,  7,  6,  5,  4],
-//    [ 5,  6,  7,  8,  9,  8,  7,  6,  5,  4,  3],
-//    [ 4,  5,  6,  7,  8,  7,  6,  5,  4,  3,  2],
-//    [ 3,  4,  5,  6,  7,  6,  5,  4,  3,  2,  1],
-//    [ 2,  3,  4,  5,  6,  5,  4,  3,  2,  1,  0]
-//]
-//
-//find2DPeak(nums: problemMatrix)
-
-
+Bubble Sort - https://www.youtube.com/watch?v=o4bAoo_gFBU&list=PLdo5W4Nhv31bEiyP4tclZMc5mP_X7OD7k&index=1
+*/
 
 func bubbleSort_iterative<T: Comparable>(on array: inout [T]) -> [T?] {
     
