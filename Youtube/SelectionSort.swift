@@ -1,5 +1,6 @@
 /*
  Selection Sort - https://www.youtube.com/watch?v=9oWd4VJOwr0&list=PLdo5W4Nhv31bbKJzrsKfMpo_grxuLl8LU&index=99
+ O(n<Square>)
  */
 
 func selectionSort_iterative<T: Comparable>(on array: inout[T]) -> [T] {
