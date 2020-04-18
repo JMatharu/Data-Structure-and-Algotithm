@@ -105,5 +105,8 @@ list.append("three")
 list.push("A")
 list.push("Q")
 list.push("Z")
+list.insertAtLast("Last")
+list.insertAtFirst("First")
 
-print(list.head!) //Z -> Q -> A -> Two -> One -> Four -> Six -> Five -> one -> two -> three
+print(list.head!) //First -> Z -> Q -> A -> Two -> One -> Four -> Six -> Five -> one -> two -> three -> Last
+
