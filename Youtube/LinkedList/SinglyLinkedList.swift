@@ -22,22 +22,65 @@ public class ListNode<T>: CustomStringConvertible {
 
 public struct LinkedList<T> {
     public var head: ListNode<T>?
-    private var temp: ListNode<T>? // Or call it tail
     
     public init() {}
     
     public var isEmpty: Bool {
         return head == nil
     }
+}
+
+// Inserting
+extension LinkedList {
     
-    mutating func push(_ val: T) {
-        if head == nil {
-            head = ListNode<T>(val)
-            temp = head
+    // insert at tail O(1)
+    mutating func append(_ val: T) {
+        if isEmpty {
+            insertAtFirst(val)
         } else {
-            temp?.next = ListNode<T>(val)
+            insertAtLast(val)
+        }
+    }
+    
+    // insert at head O(1)
+    mutating func push(_ val: T) {
+        insertAtFirst(val)
+    }
+    
+    // O(n), where `n` is the given index
+    mutating func insert(_ val: T, at index: Int) {
+        if index == 0 {
+            insertAtFirst(val)
+        } else {
+            var currentIndex = 0
+            var temp = head
+            while temp?.next != nil && currentIndex < index {
+                temp = temp?.next
+                currentIndex += 1
+            }
+            if currentIndex < index {
+                print("Index is invalid, valid range is 0 to \(currentIndex)")
+            } else {
+                let newNode = ListNode(val)
+                newNode.next = temp?.next
+                temp?.next = newNode
+            }
+        }
+    }
+    
+    mutating func insertAtFirst(_ val: T) {
+        let newNode = ListNode(val)
+        newNode.next = head
+        head = newNode
+    }
+    
+    mutating func insertAtLast(_ val: T) {
+        let newNode = ListNode(val)
+        var temp = head
+        while temp?.next != nil {
             temp = temp?.next
         }
+        temp?.next = newNode
     }
 }
 
@@ -51,10 +94,16 @@ node2.next = node3
 print(node1) // 1 -> 2 -> 3
 
 var list = LinkedList<String>()
-list.push("one")
-list.push("two")
-list.push("three")
+list.insert("One", at: 0)
+list.insert("Two", at: 0)
+list.insert("Four", at: 1)
+list.insert("Five", at: 2)
+list.insert("Six", at: 2)
+list.append("one")
+list.append("two")
+list.append("three")
+list.push("A")
+list.push("Q")
+list.push("Z")
 
-print(list) //LinkedList<String>(head: Optional(one -> two -> three), temp: Optional(three))
-
-
+print(list.head!) //Z -> Q -> A -> Two -> One -> Four -> Six -> Five -> one -> two -> three
