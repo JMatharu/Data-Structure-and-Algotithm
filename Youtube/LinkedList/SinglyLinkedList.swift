@@ -35,11 +35,7 @@ extension LinkedList {
     
     // insert at tail O(1)
     mutating func append(_ val: T) {
-        if isEmpty {
-            insertAtFirst(val)
-        } else {
-            insertAtLast(val)
-        }
+        insertAtLast(val)
     }
     
     // insert at head O(1)
@@ -68,13 +64,13 @@ extension LinkedList {
         }
     }
     
-    mutating func insertAtFirst(_ val: T) {
+    private mutating func insertAtFirst(_ val: T) {
         let newNode = ListNode(val)
         newNode.next = head
         head = newNode
     }
     
-    mutating func insertAtLast(_ val: T) {
+    private mutating func insertAtLast(_ val: T) {
         let newNode = ListNode(val)
         var temp = head
         while temp?.next != nil {
@@ -106,8 +102,6 @@ list.append("three")
 list.push("A")
 list.push("Q")
 list.push("Z")
-list.insertAtLast("Last")
-list.insertAtFirst("First")
 
-print(list.head!) //First -> Z -> Q -> A -> Two -> One -> Four -> Six -> Five -> one -> two -> three -> Last
+print(list.head!) //Z -> Q -> A -> Two -> One -> Four -> Six -> Five -> one -> two -> three
 
