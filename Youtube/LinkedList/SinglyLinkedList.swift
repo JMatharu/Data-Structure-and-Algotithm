@@ -99,6 +99,7 @@ list.insert("Two", at: 0)
 list.insert("Four", at: 1)
 list.insert("Five", at: 2)
 list.insert("Six", at: 2)
+list.insert("Seven", at: 100) // Index is invalid, valid range is 0 to 4
 list.append("one")
 list.append("two")
 list.append("three")
