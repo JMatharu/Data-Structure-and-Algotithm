@@ -17,7 +17,6 @@ public class ListNode<T>: CustomStringConvertible {
         }
         return "\(val) -> " + String(describing: next)
     }
-    
 }
 
 public struct LinkedList<T> {
@@ -28,12 +27,26 @@ public struct LinkedList<T> {
     public var isEmpty: Bool {
         return head == nil
     }
+    
+    public var length: Int {
+        guard !isEmpty else {
+            return 0
+        }
+        
+        var temp = head
+        var count = 1
+        while temp?.next != nil {
+            temp = temp?.next
+            count += 1
+        }
+        return count
+    }
 }
 
 // Inserting
 extension LinkedList {
     
-    // insert at tail O(1)
+    // insert at tail O(n)
     mutating func append(_ val: T) {
         insertAtLast(val)
     }
@@ -80,6 +93,56 @@ extension LinkedList {
     }
 }
 
+// Deletion
+extension LinkedList {
+    
+    // O(1)
+    mutating func deleteAtFirst() {
+        guard !isEmpty else {
+            print("List is empty")
+            return
+        }
+        head = head?.next
+    }
+    
+    // O(n)
+    mutating func deleteAtLast() {
+        guard !isEmpty else {
+            print("List is empty")
+            return
+        }
+        var temp = head
+        var previousNode: ListNode<T>?
+        while temp?.next != nil {
+            previousNode = temp
+            temp = temp?.next
+        }
+        if temp === head {
+            head = nil
+        } else {
+            previousNode?.next = nil
+        }
+    }
+    
+    // O(n), where `n` is the given index
+    mutating func deleteAtIndex(_ index: Int) {
+        guard !isEmpty else {
+            print("List is empty")
+            return
+        }
+        var temp = head
+        var currentIndex = 0
+        while currentIndex < index - 1 {
+            temp = temp?.next
+            currentIndex += 1
+        }
+        
+        var nextNode = temp?.next
+        temp?.next = nextNode?.next
+        nextNode = nil
+    }
+}
+
 let node1 = ListNode<Int>(1)
 let node2 = ListNode<Int>(2)
 let node3 = ListNode<Int>(3)
@@ -103,5 +166,17 @@ list.push("A")
 list.push("Q")
 list.push("Z")
 
+
+
 print(list.head!) //Z -> Q -> A -> Two -> One -> Four -> Six -> Five -> one -> two -> three
 
+list.deleteAtFirst()
+print(list.head!) // Q -> A -> Two -> One -> Four -> Six -> Five -> one -> two -> three
+
+list.deleteAtLast()
+print(list.head!) // Q -> A -> Two -> One -> Four -> Six -> Five -> one -> two
+
+list.deleteAtIndex(2)
+print(list.head!) //Q -> A -> One -> Four -> Six -> Five -> one -> two
+
+print(list.length) // 8
