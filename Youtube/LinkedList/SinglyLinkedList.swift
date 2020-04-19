@@ -143,6 +143,24 @@ extension LinkedList {
     }
 }
 
+// Reverse
+extension LinkedList {
+    mutating func reverse() {
+        var previousNode: ListNode<T>?
+        var currentNode = head
+        var nextNode = head
+        
+        while nextNode != nil {
+            nextNode = nextNode?.next
+            currentNode?.next = previousNode
+            
+            previousNode = currentNode
+            currentNode = nextNode
+        }
+        head = previousNode
+    }
+}
+
 let node1 = ListNode<Int>(1)
 let node2 = ListNode<Int>(2)
 let node3 = ListNode<Int>(3)
@@ -180,3 +198,6 @@ list.deleteAtIndex(2)
 print(list.head!) //Q -> A -> One -> Four -> Six -> Five -> one -> two
 
 print(list.length) // 8
+
+list.reverse()
+print(list.head!) //two -> one -> Five -> Six -> Four -> One -> A -> Q
