@@ -164,7 +164,6 @@ extension LinkedList {
         }
         
         var current = head
-//        var next = head
         var prevNode: ListNode<T>?
         
         while current != nil {
