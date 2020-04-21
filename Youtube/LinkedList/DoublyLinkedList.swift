@@ -164,16 +164,16 @@ extension LinkedList {
         }
         
         var current = head
-        var next: ListNode<T>?
+//        var next = head
+        var prevNode: ListNode<T>?
         
         while current != nil {
-            next = current?.next
+            let next = current?.next
             current?.next = current?.previous
-            current?.previous = next
+            prevNode = current
             current = next
         }
-        current = head
-        head = tail
+        head = prevNode
         tail = current
     }
 }
@@ -199,5 +199,5 @@ list.delete(at: 3)
 list.head //f <-> e <-> a <-> b <-> c
 list.delete(at: 3)
 list.head //f <-> e <-> b <-> c
-list.reverse() // In progress
-list.head
+list.reverse()
+list.head // c <-> b <-> e <-> f
