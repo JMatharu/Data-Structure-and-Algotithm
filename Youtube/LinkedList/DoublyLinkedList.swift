@@ -132,18 +132,22 @@ extension LinkedList {
             return
         }
         guard !(index < 0) else { print("Unable to delete at index \(index)"); return }
+        guard index < length else { print("Index: \(index) exceeds length of list"); return }
         
         var temp = head
+        var tempPrevious = head
         var counter = 0
         while counter < index - 1 {
+            tempPrevious = temp
             temp = temp?.next
             counter += 1
         }
+        
         let nextNode = temp?.next
-        let previousNode = temp?.previous
-        previousNode?.next = nextNode
-        nextNode?.previous = previousNode
+        tempPrevious?.next = nextNode
+        nextNode?.previous = tempPrevious
         temp = nil
+        tempPrevious = nil
     }
 }
 
@@ -171,7 +175,7 @@ list.pop()
 list.head //f <-> e <-> 1 <-> a <-> b <-> c <-> d
 list.deleteFromEnd()
 list.head //f <-> e <-> 1 <-> a <-> b <-> c
-list.delete(at: 2)
-list.head //f <-> 1 <-> a <-> b <-> c
-list.delete(at: 3) // Wrong here
-list.head
+list.delete(at: 3)
+list.head //f <-> e <-> a <-> b <-> c
+list.delete(at: 3)
+list.head //f <-> e <-> b <-> c
