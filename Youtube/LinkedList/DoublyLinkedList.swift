@@ -153,8 +153,28 @@ extension LinkedList {
 
 // Reverse
 extension LinkedList {
-    func reverse() {
+    mutating func reverse() {
+        guard !isEmpty || length > 0 else { return }
+        guard length != 0 else {
+            var temp = head
+            head = tail
+            tail = temp
+            temp = nil
+            return
+        }
         
+        var current = head
+        var next: ListNode<T>?
+        
+        while current != nil {
+            next = current?.next
+            current?.next = current?.previous
+            current?.previous = next
+            current = next
+        }
+        current = head
+        head = tail
+        tail = current
     }
 }
 
@@ -179,3 +199,5 @@ list.delete(at: 3)
 list.head //f <-> e <-> a <-> b <-> c
 list.delete(at: 3)
 list.head //f <-> e <-> b <-> c
+list.reverse() // In progress
+list.head
