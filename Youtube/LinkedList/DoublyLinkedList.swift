@@ -19,7 +19,7 @@ class ListNode<T>: CustomStringConvertible {
     }
 }
 
-struct LinkedList<T> {
+struct DoublyLinkedList<T> {
     var head: ListNode<T>?
     var tail: ListNode<T>?
     
@@ -44,7 +44,7 @@ struct LinkedList<T> {
     }
 }
 
-extension LinkedList {
+extension DoublyLinkedList {
     // Add to last (this will be O(1) because of using tail pointer)
     mutating func append(_ value: T) {
         let newNode = ListNode(value)
@@ -101,7 +101,7 @@ extension LinkedList {
 }
 
 // Delettion
-extension LinkedList {
+extension DoublyLinkedList {
     // Delete from begining O(1)
     mutating func pop() {
         guard !isEmpty else {
@@ -152,7 +152,7 @@ extension LinkedList {
 }
 
 // Reverse
-extension LinkedList {
+extension DoublyLinkedList {
     mutating func reverse() {
         guard !isEmpty || length > 0 else { return }
         guard length != 0 else {
@@ -177,7 +177,7 @@ extension LinkedList {
     }
 }
 
-var list = LinkedList<String>()
+var list = DoublyLinkedList<String>()
 list.push("e")
 list.push("f")
 list.head //f <-> e
