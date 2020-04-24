@@ -3,7 +3,7 @@
  */
 
 struct Stack<T>: CustomStringConvertible {
-    var elements = [T?]() 
+    var elements = [T?]()
     
     private var index: Int = -1
     
@@ -35,7 +35,7 @@ struct Stack<T>: CustomStringConvertible {
             return nil
         }
         let item = elements[index]
-        cleanUp()
+        elements.removeLast() // For Now using this will refactor this to use non framework
         index -= 1
         return item
     }
@@ -49,13 +49,13 @@ struct Stack<T>: CustomStringConvertible {
         return elements[index]
     }
     
-    private mutating func cleanUp() {
-        var newElements: [T?] = [T?]()
-        for index in 0..<index {
-            newElements += [elements[index]]
-        }
-        self.elements = newElements
-    }
+//    private mutating func cleanUp() {
+//        var newElements: [T?] = [T?]()
+//        for index in 0..<index {
+//            newElements += [elements[index]]
+//        }
+//        self.elements = newElements
+//    }
 }
 
 var stack = Stack<Int>()
