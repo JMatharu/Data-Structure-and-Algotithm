@@ -129,3 +129,16 @@ print(graph)
 graph.egdes(from: singapore)?.forEach({ edge in
     print(edge.source.data, "->", edge.destination.data)
 })
+
+
+// 4: San Francisco ---> [ 2: Hong Kong, 5: Washington DC, 7: Seattle, 6: Austin Texas ]
+// 5: Washington DC ---> [ 1: Tokyo, 6: Austin Texas, 4: San Francisco, 7: Seattle ]
+// 7: Seattle ---> [ 5: Washington DC, 4: San Francisco ]
+// 1: Tokyo ---> [ 0: Singapore, 2: Hong Kong, 3: Detroit, 5: Washington DC ]
+// 3: Detroit ---> [ 1: Tokyo, 6: Austin Texas ]
+// 6: Austin Texas ---> [ 3: Detroit, 5: Washington DC, 4: San Francisco ]
+// 0: Singapore ---> [ 2: Hong Kong, 1: Tokyo ]
+// 2: Hong Kong ---> [ 0: Singapore, 1: Tokyo, 4: San Francisco ]
+
+// Singapore -> Hong Kong
+// Singapore -> Tokyo
