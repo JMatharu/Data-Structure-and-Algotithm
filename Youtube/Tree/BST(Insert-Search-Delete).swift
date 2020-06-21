@@ -35,6 +35,35 @@ extension TreeNode {
     }
 }
 
+// Search In a BST
+extension TreeNode {
+    func exist(_ val: Int) -> Bool? {
+        return search(val, treeNode: root)
+    }
+    
+    private func search(_ val: Int, treeNode: TreeNode?) -> Bool {
+        guard let r = treeNode else { return false }
+        if r.val == val { return true }
+        
+        if val < r.val! {
+            return search(val, treeNode: r.left)
+        }
+        return search(val, treeNode: r.right)
+    }
+}
+
+// Delete in a BST
+extension TreeNode {
+    
+    func deleteFromBST(_ val: Int) {
+        
+    }
+    
+    private func delete(_ val: Int) {
+        
+    }
+}
+
 /*
  In Order Traversal - Root Left Right
  */
@@ -57,3 +86,5 @@ for value in [50, 30, 20, 40, 70, 60, 80] {
 
 inOrderTraversalOf(tree1.root) // [4, 5, 6, 8, 10, 11, 17, 19, 31, 43, 49]
 inOrderTraversalOf(tree2.root) // [20, 30, 40, 50, 60, 70, 80]
+tree1.exist(4) // true
+tree1.exist(80) // false
